@@ -1,12 +1,35 @@
-# React + Vite
+# EurekaAI - AI Research Assistant
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+EurekaAI is a smart AI-powered research assistant that helps users **search, summarize, and analyze research topics efficiently**. It acts like a personal research companion, automatically fetching key insights, generating summaries, and comparing past and present findings.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Introduction
 
-## Expanding the ESLint configuration
+EurekaAI aims to **save researchers’ time and effort** by automating the tedious process of reading articles, extracting insights, and citing sources.  
+It is suitable for:
+- Students  
+- Professionals  
+- Writers  
+- Curious minds  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Features
+
+- Search and summarize research articles automatically   
+- Export summaries to PDF or Markdown  
+- Tone and style selection for summaries  
+- User-friendly dark mode interface  
+
+---
+
+## Tech Stack
+
+**Frontend:**  
+- React.js (functional components + hooks)  
+- Tailwind CSS (for styling)  
+
+
+
+---
