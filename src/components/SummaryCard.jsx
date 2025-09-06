@@ -13,7 +13,7 @@ export default function SummaryCard({ title, content, source }) {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-medium shadow-md hover:shadow-lg hover:scale-105 transition"
         >
-          <ExternalLink size={16} />
+          <ExternalLink size={16}  />
           {source.name}
         </a>
       )}
