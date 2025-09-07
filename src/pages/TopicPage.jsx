@@ -12,6 +12,8 @@ import { motion } from "framer-motion";
 
 export default function TopicPage() {
   const { topicName } = useParams();
+  console.log('TopicPage component mounted with topicName:', topicName);
+  
   const [showAllWebResults, setShowAllWebResults] = useState(false);
   const [geminiPoints, setGeminiPoints] = useState('');
   const [geminiLoading, setGeminiLoading] = useState(false);
@@ -22,45 +24,73 @@ export default function TopicPage() {
   const [webResults, setWebResults] = useState([]);
   const [webLoading, setWebLoading] = useState(false);
   useEffect(() => {
+    console.log('TopicPage useEffect triggered for:', topicName);
     setLoading(true);
+    
+    // Fetch research data but don't let it block other calls
     fetchResearchData(topicName).then((res) => {
+      console.log('Research data fetched:', res);
       setData(res);
       setLoading(false);
+    }).catch((err) => {
+      console.error('Research data error:', err);
+      setData({ summary: [], sources: [] });
+      setLoading(false);
     });
+    
+    // Fetch web search results independently
     setWebLoading(true);
     fetchWebSearchResults(topicName).then((results) => {
+      console.log('Web search results:', results);
       setWebResults(results);
       setWebLoading(false);
-      setGeminiLoading(true);
-      setGeminiError('');
-      fetchGeminiPoints(topicName, results, tone)
-        .then((points) => {
-          setGeminiPoints(points);
-          if (!points) {
-            setGeminiError('No summary returned.');
-          }
-        })
-        .catch((err) => {
-          setGeminiError('Error fetching summary: ' + (err?.message || err));
-        })
-        .finally(() => {
-          setGeminiLoading(false);
-        });
+      
+      // Only proceed with Gemini if we have web results
+      if (results && results.length > 0) {
+        setGeminiLoading(true);
+        setGeminiError('');
+        fetchGeminiPoints(topicName, results, tone)
+          .then((points) => {
+            console.log('Gemini points received:', points);
+            setGeminiPoints(points);
+            if (!points) {
+              setGeminiError('No summary returned.');
+            }
+          })
+          .catch((err) => {
+            console.error('Gemini error:', err);
+            setGeminiError('Error fetching summary: ' + (err?.message || err));
+          })
+          .finally(() => {
+            setGeminiLoading(false);
+          });
+      } else {
+        setGeminiError('No web search results found.');
+        setGeminiLoading(false);
+      }
+    }).catch((err) => {
+      console.error('Web search error:', err);
+      setWebResults([]);
+      setWebLoading(false);
+      setGeminiError('Failed to fetch web search results.');
     });
   }, [topicName]);
 
   useEffect(() => {
+    console.log('Tone changed to:', tone, 'with', webResults.length, 'web results');
     if (webResults.length > 0 && tone) {
       setGeminiLoading(true);
       setGeminiError('');
       fetchGeminiPoints(topicName, webResults, tone)
         .then((points) => {
+          console.log('Gemini points for tone change:', points);
           setGeminiPoints(points);
           if (!points) {
             setGeminiError('No summary returned.');
           }
         })
         .catch((err) => {
+          console.error('Gemini error on tone change:', err);
           setGeminiError('Error fetching summary: ' + (err?.message || err));
         })
         .finally(() => {

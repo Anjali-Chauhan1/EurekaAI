@@ -12,7 +12,7 @@ export default function Navbar() {
         className="text-2xl font-bold text-white hover:text-transparent 
         bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 transition"
       >
-        EurekaAI
+        NovaSearch
       </Link>
        <div className="space-x-4 text-lg font-medium flex">
         <Link 

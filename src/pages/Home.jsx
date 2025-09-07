@@ -1,5 +1,4 @@
-
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import { motion } from "framer-motion";
@@ -7,6 +6,11 @@ import { Search, BarChart3, FileText, Share2 } from "lucide-react";
 
 export default function Home() {
   const nav = useNavigate();
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleTopicClick = (topic) => {
+    setSearchQuery(topic);
+  };
 
   const features = [
    {
@@ -53,7 +57,7 @@ export default function Home() {
             bg-gradient-to-r from-blue-300 via-indigo-400 to-purple-500
             tracking-tight leading-tight drop-shadow-sm"
           >
-            EurekaAI
+            NovaSearch
           </h1>
 
           <p className="mt-6 text-gray-300 text-xl md:text-2xl leading-relaxed font-light">
@@ -62,7 +66,7 @@ export default function Home() {
           </p>
 
           <div className="mt-10 w-full max-w-3xl mx-auto">
-            <SearchBar />
+            <SearchBar query={searchQuery} setQuery={setSearchQuery} />
           </div>
         </motion.div>
 
@@ -72,21 +76,27 @@ export default function Home() {
           transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
           className="mt-16 flex flex-wrap gap-6 justify-center"
         >
-          <span className="px-5 py-3 rounded-2xl text-xl 
+          <span 
+            onClick={() => handleTopicClick('Quantum Computing')}
+            className="px-5 py-3 rounded-2xl text-xl 
             bg-blue-500/20 backdrop-blur-md text-white font-medium 
             border border-blue-400/40 hover:bg-blue-500/30 
             cursor-pointer transition [text-shadow:0_0_10px_#3b82f6]">
             Quantum Computing
           </span>
 
-          <span className="px-5 py-3 rounded-2xl text-xl 
+          <span 
+            onClick={() => handleTopicClick('Alzheimer Research')}
+            className="px-5 py-3 rounded-2xl text-xl 
             bg-purple-500/20 backdrop-blur-md text-white font-medium 
             border border-purple-400/40 hover:bg-purple-500/30 
             cursor-pointer transition [text-shadow:0_0_10px_#a855f7]">
-            Alzheimer’s Research
+            Alzheimer's Research
           </span>
 
-          <span className="px-5 py-3 rounded-2xl text-xl 
+          <span 
+            onClick={() => handleTopicClick('AI Ethics')}
+            className="px-5 py-3 rounded-2xl text-xl 
             bg-green-500/20 backdrop-blur-md text-white font-medium 
             border border-green-400/40 hover:bg-green-500/30 
             cursor-pointer transition [text-shadow:0_0_10px_#22c55e]">
@@ -149,9 +159,6 @@ export default function Home() {
   </div>
 </section>
 
-
-
-      
     </div>
   );
 }

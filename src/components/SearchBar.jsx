@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function SearchBar({ placeholder = "Enter research topic..." }) {
-  const [query, setQuery] = useState('');
+export default function SearchBar({ placeholder = "Enter research topic...", query, setQuery }) {
+  const [localQuery, setLocalQuery] = useState('');
   const navigate = useNavigate();
 
+  // Use controlled props if provided, otherwise use local state
+  const currentQuery = query !== undefined ? query : localQuery;
+  const currentSetQuery = setQuery !== undefined ? setQuery : setLocalQuery;
+
   const handleSearch = () => {
-    if(query.trim() !== '') {
-      navigate(`/topic/${encodeURIComponent(query)}`);
+    if(currentQuery.trim() !== '') {
+      navigate(`/topic/${encodeURIComponent(currentQuery)}`);
     }
   };
 
@@ -19,8 +23,8 @@ export default function SearchBar({ placeholder = "Enter research topic..." }) {
     <div className="flex justify-center mt-10 w-full px-4">
   <input
     type="text"
-    value={query}
-    onChange={(e) => setQuery(e.target.value)}
+    value={currentQuery}
+    onChange={(e) => currentSetQuery(e.target.value)}
     onKeyDown={handleKeyPress}
     placeholder={placeholder}
     className="w-2/3 md:w-1/2 p-4 rounded-l-xl 

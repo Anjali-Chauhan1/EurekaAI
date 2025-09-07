@@ -35,7 +35,7 @@ export default function LandingPage() {
           transition={{ duration: 1 }}
           className="text-5xl md:text-6xl font-bold pb-3 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent drop-shadow-lg"
         >
-          About EurekaAI
+          About NovaSearch
         </motion.h1>
         <p className=" mt-9 max-w-3xl  text-gray-300 text-xl md:text-2xl leading-relaxed font-light">
           AI Research Agent is a smart research assistant that automatically

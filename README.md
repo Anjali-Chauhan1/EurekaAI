@@ -1,6 +1,8 @@
-# EurekaAI - AI Research Assistant
+# Nova## Introduction
 
-EurekaAI is a smart AI-powered research assistant that helps users **search, summarize, and analyze research topics efficiently**. It acts like a personal research companion, automatically fetching key insights, generating summaries, and comparing past and present findings.
+NovaSearch aims to **save researchers' time and effort** by automating the tedious process of reading articles, extracting insights, and citing sources.ovaSearch aims to **save researchers' time and effort** by automating the tedious process of reading articles, extracting insights, and citing sources.rch - AI Research Assistant
+
+NovaSearch is a smart AI-powered research assistant that helps users **search, summarize, and analyze research topics efficiently**. It acts like a personal research companion, automatically fetching key insights, generating summaries, and comparing past and present findings.
 
 ---
 
