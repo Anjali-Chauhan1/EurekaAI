@@ -38,7 +38,7 @@ export default function ChatInterface({ topic, webResults, isVisible }) {
     try {
       console.log('Sending chat message:', { inputMessage, topic, webResults: webResults?.length });
       
-      const response = await axios.post('http://localhost:5000/api/chat', {
+      const response = await axios.post('https://novasearch-7x59.onrender.com/api/chat', {
         message: inputMessage,
         topic: topic,
         webResults: webResults,

@@ -3,7 +3,7 @@ import axios from 'axios';
 export async function fetchGeminiPoints(query, webResults, tone = "Technical") {
   try {
     console.log('Calling Gemini API with:', { query, webResults: webResults.length, tone });
-    const res = await axios.post('http://localhost:5000/api/gemini', { query, webResults, tone });
+    const res = await axios.post('https://novasearch-7x59.onrender.com/api/gemini', { query, webResults, tone });
     console.log('Gemini API response:', res.data);
     return res.data.points;
   } catch (err) {
@@ -15,7 +15,7 @@ export async function fetchGeminiPoints(query, webResults, tone = "Technical") {
 export async function fetchWebSearchResults(query) {
   try {
     console.log('Fetching web search results for:', query);
-    const res = await axios.get('http://localhost:5000/api/search', { params: { q: query } });
+    const res = await axios.get('https://novasearch-7x59.onrender.com/api/search', { params: { q: query } });
     console.log('Web search results:', res.data.results?.length || 0, 'results found');
     return res.data.results;
   } catch (err) {
@@ -24,7 +24,7 @@ export async function fetchWebSearchResults(query) {
   }
 }
 
-const API_BASE = 'http://localhost:5000/api/research';
+const API_BASE = 'https://novasearch-7x59.onrender.com/api/research';
 
 export async function fetchResearchData(topic) {
   try {
