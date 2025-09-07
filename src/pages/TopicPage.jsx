@@ -126,13 +126,13 @@ export default function TopicPage() {
             AI Research Points
           </h3>
           {geminiLoading ? (
-            <p className="text-gray-400">Loading Gemini research points...</p>
+            <p className="text-gray-400">Loading research points...</p>
           ) : geminiError ? (
             <p className="text-red-400 italic">{geminiError}</p>
           ) : geminiPoints ? (
             <div className="text-gray-200 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: geminiPoints }} />
           ) : (
-            <p className="text-gray-500 italic">No Gemini summary available.</p>
+            <p className="text-gray-500 italic">No Summary available.</p>
           )}
         </motion.div>
 

@@ -6,7 +6,7 @@ require('dotenv').config();
 router.post('/', async (req, res) => {
   const { query, webResults, tone = "Technical" } = req.body;
   if (!query || !webResults) {
-    console.error('Missing query or webResults in Gemini request', req.body);
+    console.error('Missing query or webResults in request', req.body);
     return res.status(400).json({ error: 'Missing query or webResults' });
   }
 
@@ -81,16 +81,16 @@ Format your response with clear headings and bullet points for easy reading. Mak
     console.log('Full Gemini API response:', JSON.stringify(response.data, null, 2));
     let text = response.data.candidates?.[0]?.content?.parts?.[0]?.text || '';
     if (!text) {
-      console.warn('No summary text returned from Gemini API. Response:', JSON.stringify(response.data));
+      console.warn('No summary text returned from API. Response:', JSON.stringify(response.data));
     }
     text = text.replace(/\*+\s*\*\*(.*?)\*\*/g, '<b>• $1</b>');
     text = text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
     res.json({ points: text });
   } catch (err) {
     if (err.response) {
-      console.error('Gemini API error response:', JSON.stringify(err.response.data, null, 2));
+      console.error('API error response:', JSON.stringify(err.response.data, null, 2));
     } else {
-      console.error('Gemini API error:', err.message);
+      console.error('API error:', err.message);
     }
     res.status(500).json({ error: err.response?.data?.error?.message || err.message });
   }
