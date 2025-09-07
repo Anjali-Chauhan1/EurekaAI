@@ -42,7 +42,7 @@ export default function Footer() {
         <p className="flex items-center justify-center gap-2">
           Made with <Heart className="text-red-500 w-4 h-4" /> by the EurekaAI Team
         </p>
-        <p className="mt-2">© 2024 AI Research Assistant. All rights reserved.</p>
+        <p className="mt-2">© 2025 AI Research Assistant. All rights reserved.</p>
       </div>
     </footer>
   );
