@@ -1,4 +1,14 @@
-// Fetch live web search results from backend (SerpAPI)
+import axios from 'axios';
+
+export async function fetchGeminiPoints(query, webResults, tone = "Technical") {
+  try {
+    const res = await axios.post('http://localhost:5000/api/gemini', { query, webResults, tone });
+    return res.data.points;
+  } catch (err) {
+    return '';
+  }
+}
+
 export async function fetchWebSearchResults(query) {
   try {
     const res = await axios.get('http://localhost:5000/api/search', { params: { q: query } });
@@ -8,10 +18,7 @@ export async function fetchWebSearchResults(query) {
   }
 }
 
-import axios from 'axios';
-
 const API_BASE = 'http://localhost:5000/api/research';
-
 
 export async function fetchResearchData(topic) {
   try {
@@ -37,7 +44,6 @@ export async function fetchResearchData(topic) {
     return { summary: [], sources: [], error: err.message };
   }
 }
-
 
 export async function postResearchData({ query, summary, sources }) {
   try {

@@ -37,7 +37,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar */}
       <div className="border-t border-gray-800 mt-8 py-6 text-center text-sm text-gray-500">
         <p className="flex items-center justify-center gap-2">
           Made with <Heart className="text-red-500 w-4 h-4" /> by the EurekaAI Team

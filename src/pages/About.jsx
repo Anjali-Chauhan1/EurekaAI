@@ -28,7 +28,6 @@ export default function LandingPage() {
 
   return (
     <div className="h-screen  overflow-y-scroll snap-y snap-mandatory text-white">
-      {/* About */}
       <section className="h-screen w-full snap-start flex flex-col items-center justify-center text-center px-6 bg-gradient-to-br from-black via-gray-900 to-gray-800">
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
@@ -51,7 +50,6 @@ export default function LandingPage() {
         </motion.a>
       </section>
 
-      {/* USP */}
       <section
         id="usp"
         className="h-screen snap-start flex flex-col items-center justify-center bg-gradient-to-br from-black via-gray-900 to-gray-800 px-6"
@@ -82,7 +80,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-       {/*How It Works */}
 <section className="h-screen snap-start flex flex-col items-center justify-center bg-gradient-to-br from-black via-gray-900 to-gray-800 px-6">
   <motion.h2
     initial={{ opacity: 0, y: 40 }}
