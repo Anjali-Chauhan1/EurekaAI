@@ -1,4 +1,4 @@
-# Nova## Introduction
+## NovaSearch  Introduction
 
 NovaSearch aims to **save researchers' time and effort** by automating the tedious process of reading articles, extracting insights, and citing sources.ovaSearch aims to **save researchers' time and effort** by automating the tedious process of reading articles, extracting insights, and citing sources.rch - AI Research Assistant
 
